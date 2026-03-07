@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — 12:15</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f5f2ec;--green:#1a3a2a;--amber:#f0a020;--amber2:#c8732a;--muted:#8a8070;--border:#d8d0c0;--card:#f0ebe2;--sans:'DM Sans',sans-serif;--serif:'Playfair Display',Georgia,serif;--display:'Bebas Neue',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--black);font-family:var(--sans);font-size:15px;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 48px;background:rgba(245,242,236,0.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;justify-self:start;font-family:var(--display);font-size:2rem;color:var(--black);letter-spacing:1px;line-height:1;}.nav-logo span{color:var(--amber);}
+.nav-links{display:flex;gap:36px;list-style:none;justify-self:center;}
+.nav-links a{font-size:0.72rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--amber);}
+.nav-cta{font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--black);background:var(--amber);padding:9px 22px;text-decoration:none;border-radius:2px;transition:all 0.2s;justify-self:end;}
+.nav-cta:hover{background:var(--amber2);color:var(--white);}
+.page-header{background:var(--black);padding:140px 56px 80px;position:relative;overflow:hidden;}
+.page-header::before{content:'SERVICES';font-family:var(--display);font-size:16rem;position:absolute;right:-20px;bottom:-60px;color:rgba(245,242,236,0.03);pointer-events:none;line-height:1;}
+.page-header-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;}
+.ph-eyebrow{font-size:0.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.ph-eyebrow::before{content:'';display:block;width:26px;height:2px;background:var(--amber);}
+.ph-headline{font-family:var(--display);font-size:clamp(4rem,7vw,8rem);line-height:0.9;letter-spacing:1px;color:var(--white);}
+.ph-headline span{color:var(--amber);display:block;}
+.ph-intro{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:rgba(245,242,236,0.65);line-height:1.65;margin-bottom:16px;}
+.ph-body{font-size:0.85rem;color:rgba(245,242,236,0.4);line-height:1.8;}
+.hub-wrap{max-width:1200px;margin:0 auto;padding:80px 56px;}
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.hub-card{display:flex;flex-direction:column;text-decoration:none;border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.3s;}
+.hub-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.hub-card:hover{transform:translateY(-5px);box-shadow:0 24px 48px rgba(0,0,0,0.1);}
+.hub-card:hover::before{transform:scaleX(1);}
+.hc-colour{padding:48px 36px 36px;display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;position:relative;overflow:hidden;background-size:cover;background-position:center;}
+.hc-colour::before{content:"";position:absolute;inset:0;z-index:0;}
+.hc-colour>*{position:relative;z-index:1;}
+.hub-card:nth-child(1) .hc-colour{background-color:var(--green);}
+.hub-card:nth-child(2) .hc-colour{background-color:#1a2a3a;}
+.hub-card:nth-child(3) .hc-colour{background-color:#2a1a0a;}
+.hc-big-num{font-family:var(--display);font-size:9rem;line-height:1;color:rgba(245,242,236,0.06);position:absolute;bottom:-20px;right:10px;pointer-events:none;}
+.hc-num{font-family:var(--display);font-size:0.85rem;color:var(--amber);letter-spacing:2px;margin-bottom:10px;}
+.hc-title{font-family:var(--display);font-size:clamp(2rem,3vw,2.8rem);color:var(--white);line-height:0.95;letter-spacing:0.5px;}
+.hc-body{background:var(--white);padding:28px 36px 36px;flex:1;display:flex;flex-direction:column;justify-content:space-between;transition:background 0.2s;}
+.hub-card:hover .hc-body{background:var(--card);}
+.hc-problem{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:20px;}
+.hc-deliverables{display:flex;flex-direction:column;gap:6px;margin-bottom:24px;}
+.hc-del{font-size:0.72rem;color:#3a3530;display:flex;align-items:flex-start;gap:8px;line-height:1.4;}
+.hc-del::before{content:'→';color:var(--amber2);flex-shrink:0;font-size:0.68rem;margin-top:1px;}
+.hc-cta{font-size:0.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber2);display:flex;align-items:center;gap:8px;padding-top:20px;border-top:1px solid var(--border);transition:gap 0.2s;}
+.hub-card:hover .hc-cta{gap:14px;}
+
+
+.fs-left{}
+
+
+
+
+.btn-amber{background:var(--amber);color:var(--black);font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;text-decoration:none;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.btn-amber:hover{background:var(--amber2);color:var(--white);}
+.cta-band{background:var(--amber);padding:72px 56px;}
+.cta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.cta-text{font-family:var(--display);font-size:clamp(2rem,4vw,3.5rem);color:var(--black);line-height:0.95;}
+.cta-text span{display:block;opacity:0.45;}
+.cta-sub{font-size:0.85rem;color:rgba(10,10,10,0.6);margin-top:10px;line-height:1.6;max-width:360px;}
+.btn-dark{background:var(--black);color:var(--white);font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:16px 32px;text-decoration:none;border-radius:2px;transition:background 0.2s;white-space:nowrap;}
+.btn-dark:hover{background:var(--green);}
+footer{background:var(--black);padding:32px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:3px solid var(--amber);}
+.footer-logo{display:flex;align-items:center;}.footer-logo img{height:24px;width:auto;opacity:0.6;}
+.footer-copy{font-size:0.62rem;font-weight:500;letter-spacing:1px;color:rgba(245,242,236,0.22);text-transform:uppercase;}
+.burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:0;z-index:300;}
+.burger span{display:block;width:22px;height:2px;background:var(--black);transition:all 0.3s;transform-origin:center;}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{position:fixed;inset:0;background:var(--black);z-index:250;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{font-family:var(--display);font-size:3rem;letter-spacing:2px;color:rgba(245,242,236,0.6);text-decoration:none;padding:16px 0;transition:color 0.2s;border-bottom:1px solid rgba(245,242,236,0.07);width:100%;text-align:center;}
+.mobile-menu a:first-child{border-top:1px solid rgba(245,242,236,0.07);}
+.mobile-menu a:hover{color:var(--amber);}
+.mobile-menu .mob-cta{margin-top:40px;background:var(--amber);color:var(--black);font-family:var(--sans);font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:14px 32px;border:none;border-bottom:none;width:auto;}
+@media(max-width:960px){
+  .svc-card{grid-template-columns:1fr;}
+  .sc-colour{min-height:220px;}
+  .sc-colour{order:0 !important;min-height:200px;}
+  .sc-body{order:1 !important;}
+  .svc-card:nth-child(even) .sc-body{order:0;}
+}
+@media(max-width:768px){
+  nav{padding:14px 22px;grid-template-columns:1fr auto auto;gap:12px;} .nav-cta{justify-self:auto;font-size:0.65rem;padding:7px 14px;}
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .page-header{padding:100px 26px 56px;}
+  .page-header-inner{grid-template-columns:1fr;gap:32px;}
+  .ph-headline{font-size:clamp(3rem,10vw,5rem);}
+  .cases-wrap{padding:48px 26px;}
+  .svc-card{grid-template-columns:1fr;}
+  .sc-colour{order:0 !important;min-height:200px;}
+  .sc-body{order:1 !important;}
+  .svc-card:nth-child(even) .sc-colour{order:0 !important;}
+  .svc-card:nth-child(even) .sc-body{order:1 !important;}}
+  .sc-body{padding:28px 22px;}
+  .sc-title{font-size:1.3rem;}
+  .sc-colour{order:0 !important;min-height:200px;}
+  .sc-body{order:1 !important;}
+  .svc-card:nth-child(even) .sc-body{order:0;}
+  .cta-band{padding:48px 26px;}.cta-inner{flex-direction:column;align-items:flex-start;}
+  footer{padding:26px 22px;}
+}
+
+.svc-card{display:grid;grid-template-columns:1fr 1fr;margin-bottom:3px;text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;border:1px solid var(--border);}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,0.1);}
+.svc-card:nth-child(even) .sc-colour{order:2;}
+.svc-card:nth-child(even) .sc-body{order:1;}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,0.1);}
+.svc-card:nth-child(even) .sc-colour{order:0;}
+.svc-card:nth-child(even) .sc-body{order:1;}
+.sc-colour{display:flex;flex-direction:column;justify-content:flex-end;padding:48px 44px;position:relative;overflow:hidden;min-height:380px;background-size:cover;background-position:center top;}
+.sc-colour::before{content:"";position:absolute;inset:0;z-index:0;}
+.sc-colour>*{position:relative;z-index:1;}
+.sc-big-num{font-family:var(--display);font-size:10rem;line-height:1;color:rgba(245,242,236,0.06);position:absolute;bottom:-20px;right:20px;pointer-events:none;}
+.sc-tag{font-size:0.6rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+.sc-title{font-family:var(--display);font-size:clamp(2.2rem,3.5vw,3.2rem);color:var(--white);line-height:0.95;letter-spacing:0.5px;margin-bottom:16px;}
+.sc-outcome-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(240,160,32,0.15);border:1px solid rgba(240,160,32,0.3);padding:6px 14px;font-size:0.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--amber);}
+.sc-body{background:var(--white);padding:48px 44px;display:flex;flex-direction:column;justify-content:space-between;transition:background 0.2s;}
+.svc-card:hover .sc-body{background:var(--card);}
+.sc-section-label{font-size:0.6rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.sc-desc{font-family:var(--serif);font-size:1.05rem;color:var(--black);line-height:1.6;margin-bottom:28px;}
+.sc-deliverables{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:0;}
+.sc-del{font-size:0.6rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;background:var(--card);border:1px solid var(--border);padding:4px 10px;color:var(--muted);transition:background 0.2s;}
+.svc-card:hover .sc-del{background:var(--white);}
+.sc-read-more{font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber2);display:flex;align-items:center;gap:8px;margin-top:28px;padding-top:24px;border-top:1px solid var(--border);transition:gap 0.2s;}
+.svc-card:hover .sc-read-more{gap:14px;}
+}a{text-decoration:none;} .btn-dark, .btn-amber, .nav-cta{text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="/Website/1215_logo_cropped.png" alt="12:15" style="height:clamp(28px,3vw,40px);width:auto;"></a>
+  <ul class="nav-links">
+    <li><a href="1215-services.html" class="active">Services</a></li>
+    <li><a href="1215-work.html">Work</a></li>
+    
+    <li><a href="1215-about.html">Story</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in touch</a>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="1215-services.html">Services</a>
+  <a href="1215-work.html">Work</a>
+  <a href="1215-about.html">Story</a>
+  <a href="#contact" class="mob-cta">Get in touch</a>
+</div>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <div class="ph-eyebrow">Services</div>
+      <h1 class="ph-headline">Three<br><span>research services</span></h1>
+    </div>
+    <div>
+      <p class="ph-intro">Every service is designed to resolve a specific kind of decision friction.</p>
+      <p class="ph-body">Tell me what you're trying to figure out and I can help guide you in the right direction.</p>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1200px;margin:0 auto;padding:80px 56px 0;">
+
+  <a href="1215-service-profiling.html" class="svc-card">
+    <div class="sc-colour" style="background-image:linear-gradient(rgba(15,45,25,0.72),rgba(15,45,25,0.85)),url(/Website/service-profiling.jpg);background-size:cover;background-position:center top;">
+      <div class="sc-big-num">01</div>
+      <div class="sc-tag">Discovery · ICP · Segmentation</div>
+      <h2 class="sc-title">Customer Profiling</h2>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-section-label">What it solves</div>
+        <p class="sc-desc">You have a feel for your customers. But is that feeling evidence-based, shared across your business — and complete? Profiling builds the picture everyone can align around.</p>
+        <div class="sc-deliverables">
+          <span class="sc-del">Ideal Customer Profiles</span>
+          <span class="sc-del">Segmentation framework</span>
+          <span class="sc-del">Customer journey map</span>
+          <span class="sc-del">Strategic recommendations</span>
+        </div>
+      </div>
+      <div class="sc-read-more">See full service →</div>
+    </div>
+  </a>
+
+  <a href="1215-service-strategy.html" class="svc-card">
+    <div class="sc-colour" style="background-image:linear-gradient(rgba(10,20,40,0.72),rgba(10,20,40,0.85)),url(/Website/service-strategy.jpg);background-size:cover;background-position:center;">
+      <div class="sc-big-num">02</div>
+      <div class="sc-tag">Research · Roadmap · Validation</div>
+      <h2 class="sc-title">Product Strategy</h2>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-section-label">What it solves</div>
+        <p class="sc-desc">Roadmaps built on gut feel miss real customer pain points. Research gives you a prioritised, defensible case for what to build next — and in what order.</p>
+        <div class="sc-deliverables">
+          <span class="sc-del">Opportunity map</span>
+          <span class="sc-del">Concept testing results</span>
+          <span class="sc-del">Prioritised recommendations</span>
+          <span class="sc-del">Business case narrative</span>
+        </div>
+      </div>
+      <div class="sc-read-more">See full service →</div>
+    </div>
+  </a>
+
+  <a href="1215-service-usability.html" class="svc-card">
+    <div class="sc-colour" style="background-image:linear-gradient(rgba(30,15,5,0.72),rgba(30,15,5,0.85)),url(/Website/service-usability.jpg);background-size:cover;background-position:left center;">
+      <div class="sc-big-num">03</div>
+      <div class="sc-tag">UX Audit · Testing · Optimisation</div>
+      <h2 class="sc-title">Usability Optimisation</h2>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-section-label">What it solves</div>
+        <p class="sc-desc">The metrics show something's wrong. Research reveals exactly what, in what order to fix it, and whether the fix will hold.</p>
+        <div class="sc-deliverables">
+          <span class="sc-del">UX audit</span>
+          <span class="sc-del">Usability testing findings</span>
+          <span class="sc-del">Prioritised fix list</span>
+          <span class="sc-del">Design recommendations</span>
+        </div>
+      </div>
+      <div class="sc-read-more">See full service →</div>
+    </div>
+  </a>
+
+</div>
+
+
+<div class="cta-band" id="contact">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-text">Not sure which<br><span>service fits?</span></div>
+      <p class="cta-sub">Tell me what you're trying to figure out and I can help guide you in the right direction.</p>
+    </div>
+    <a href="/cdn-cgi/l/email-protection#1973766a71596d6e7c756f7c7f707f6d7c7c77377a76376c72" class="btn-dark">Get in touch</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="/Website/1215_logo_cropped.png" alt="12:15" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.7;"></div
+<script>
+const nav=document.getElementById('nav');
+const burger=document.getElementById('burger');
+const mobileMenu=document.getElementById('mobileMenu');
+if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});}
+if(burger&&mobileMenu){
+  burger.addEventListener('click',()=>{
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',()=>{
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+}
+document.querySelectorAll('.reveal').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting){el.classList.add('visible');}},{thr
