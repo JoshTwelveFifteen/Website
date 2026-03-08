@@ -49,6 +49,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:grid;grid-template-c
 </div>
 <!-- END NAV mobile burger -->
 
+<style>
+@media (max-width: 768px) {
+    /* keep your existing burger/nav styles here unchanged */
+    .nav-links a {
+        color: #333 !important;
+        text-align: right;
+        padding: 12px 20px 12px 40px !important;
+    }
+}
+</style>
+
+
 
 /* PAGE HEADER */
 .page-header {
@@ -520,3 +532,37 @@ if(burger&&mobileMenu){
 }
 document.querySelectorAll('.reveal').forEach(el=>{
   new IntersectionObserver(([e])=>{if(e.isIn
+<!-- NAV script -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (burger && navLinks) {
+        burger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            burger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!burger.contains(e.target) && !navLinks.contains(e.target)) {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        const navLinksAnchors = navLinks.querySelectorAll('a');
+        navLinksAnchors.forEach((link) => {
+            link.addEventListener('click', function () {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+});
+</script>
+<!-- END NAV script -->
+
+</body>
+</html>
