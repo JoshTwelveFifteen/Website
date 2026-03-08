@@ -2,28 +2,13 @@
 <html lang="en">
 <head>
 <style>
+/* Issue #5 - Burger works, NO layout changes */
 @media (max-width: 768px) {
-    #nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-    }
-    
-    .burger {
-        display: block !important;
-        margin-left: auto;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-    
     .nav-links {
         display: none;
         position: absolute;
         top: 100%;
         right: 20px;
-        left: auto;
         min-width: 200px;
         background: #fff;
         flex-direction: column;
@@ -36,22 +21,12 @@
         display: flex !important;
     }
     
-    .nav-links a {
-        color: #333 !important;
-        padding: 10px 0;
-        text-decoration: none;
-    }
-    
-    .burger span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 4px 0;
-        background: #333;
-        transition: 0.3s;
+    .burger {
+        display: block !important;
     }
 }
 </style>
+
 
 
 <meta charset="UTF-8">
