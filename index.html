@@ -493,27 +493,34 @@ if(burger&&mobileMenu){
 <div class="burger">...</div>
 <div class="nav-links">...</div>
 
-<!-- ADD SCRIPT HERE - right before </body> -->
+<!-- REPLACE your current script with this improved version -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
     
-    burger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-    
-    document.addEventListener('click', function(e) {
-        if (!burger.contains(e.target) && !navLinks.contains(e.target)) {
-            burger.classList.remove('active');
-            navLinks.classList.remove('active');
-        }
-    });
+    if (burger && navLinks) {
+        burger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close when clicking outside OR on nav links
+        document.addEventListener('click', function(e) {
+            if (!burger.contains(e.target) && !navLinks.contains(e.target)) {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Close when clicking nav links themselves
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
 });
 </script>
-
-</body>
-</html>
-
