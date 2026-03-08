@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
 <style>
+/* Issue #5 - Just make burger CLICKABLE, no positioning changes */
 @media (max-width: 768px) {
     .burger {
         display: block !important;
         background: none;
         border: none;
-        align-self: center;  /* VERTICAL CENTER */
+        cursor: pointer;  /* Makes it look clickable */
     }
     
+    /* 3 white lines for burger */
     .burger span {
         display: block !important;
         width: 25px;
         height: 3px;
         margin: 5px auto;
-        background: white !important;  /* WHITE LINES */
-        transition: 0.3s;
+        background: white !important;
     }
     
+    /* Hide menu until clicked */
     .nav-links {
         display: none;
         position: absolute;
@@ -33,18 +35,12 @@
         z-index: 1000;
     }
     
+    /* Show menu when JS adds .active */
     .nav-links.active {
         display: flex !important;
     }
-    
-    .nav-links a {
-        color: #333 !important;
-        padding: 12px 0;
-        text-decoration: none;
-    }
 }
 </style>
-
 
 
 <meta charset="UTF-8">
