@@ -1,1 +1,11 @@
-document.addEventListener('DOMContentLoaded',()=>{const e=document.querySelector('.menu-toggle,.hamburger,.mobile-menu-btn,.nav-toggle'),t=document.querySelector('.nav-menu,.mobile-menu,nav ul');e&&t&&(e.addEventListener('click',()=>{t.classList.toggle('active'),e.classList.toggle('active')}),document.addEventListener('click',e=>{!e.target.closest('.menu-toggle')&&!e.target.closest('.nav-menu')&&t.classList.remove('active')}))});
+document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.querySelector('#burger');  // Your button!
+    const navMenu = document.querySelector('nav ul');  // Common nav selector
+    
+    if (burger && navMenu) {
+        burger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            burger.classList.toggle('active');
+        });
+    }
+});
