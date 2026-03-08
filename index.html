@@ -493,30 +493,43 @@ if(burger&&mobileMenu){
 <div class="burger">...</div>
 <div class="nav-links">...</div>
 
-<!-- REPLACE your current script with this improved version -->
+<style>
+@media (max-width: 768px) {
+    /* … your existing burger & nav-link styles … */
+    /* JUST ADD these two rules at the very END of this block: */
+
+    .nav-links a {
+        color: #333 !important;
+        text-align: right;
+        padding: 12px 20px 12px 40px !important;
+    }
+}
+</style>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (burger && navLinks) {
-        burger.addEventListener('click', function(e) {
+        burger.addEventListener('click', function (e) {
             e.stopPropagation();
-            this.classList.toggle('active');
+            burger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
-        
-        // Close when clicking outside OR on nav links
-        document.addEventListener('click', function(e) {
+
+        // Close menu when clicking outside burger or nav
+        document.addEventListener('click', function (e) {
             if (!burger.contains(e.target) && !navLinks.contains(e.target)) {
                 burger.classList.remove('active');
                 navLinks.classList.remove('active');
             }
         });
-        
-        // Close when clicking nav links themselves
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
+
+        // Close menu when clicking any nav link
+        const navLinksAnchors = navLinks.querySelectorAll('a');
+        navLinksAnchors.forEach((link) => {
+            link.addEventListener('click', function () {
                 burger.classList.remove('active');
                 navLinks.classList.remove('active');
             });
@@ -524,4 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
 </body>
+</html>
+
