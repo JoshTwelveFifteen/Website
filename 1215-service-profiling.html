@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Profiling — 12:15</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f5f2ec;--green:#1a3a2a;--amber:#f0a020;--amber2:#c8732a;--muted:#8a8070;--border:#d8d0c0;--card:#f0ebe2;--sans:'DM Sans',sans-serif;--serif:'Playfair Display',Georgia,serif;--display:'Bebas Neue',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--black);font-family:var(--sans);font-size:15px;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 48px;background:rgba(245,242,236,0.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;justify-self:start;font-family:var(--display);font-size:2rem;color:var(--black);letter-spacing:1px;line-height:1;}.nav-logo span{color:var(--amber);}
+.nav-links{display:flex;gap:36px;list-style:none;justify-self:center;}
+.nav-links a{font-size:0.72rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--amber);}
+.nav-cta{font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--black);background:var(--amber);padding:9px 22px;text-decoration:none;border-radius:2px;transition:all 0.2s;justify-self:end;}
+.nav-cta:hover{background:var(--amber2);color:var(--white);}
+.svc-header{background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.65)),url(/Website/service-profiling.jpg);background-size:cover;background-position:center 20%;padding:140px 56px 80px;position:relative;overflow:hidden;}
+.svc-header::before{display:none;}
+.svc-header-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.svc-header-content{}
+.svc-header-img{display:block;}
+.svc-header-img img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:0.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(245,242,236,0.4);text-decoration:none;transition:color 0.2s;margin-bottom:32px;}
+.back-link:hover{color:var(--amber);}
+.sh-eyebrow{font-size:0.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.sh-eyebrow::before{content:'';display:block;width:26px;height:2px;background:var(--amber);}
+.sh-title{font-family:var(--display);font-size:clamp(4rem,7vw,8rem);line-height:0.9;letter-spacing:1px;color:var(--white);margin-bottom:32px;}
+.sh-meta{display:flex;gap:3px;flex-wrap:wrap;}
+.sh-meta-item{background:rgba(245,242,236,0.06);border:1px solid rgba(245,242,236,0.1);padding:10px 16px;}
+.sh-meta-label{font-size:0.55rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(245,242,236,0.3);margin-bottom:3px;}
+.sh-meta-val{font-size:0.8rem;color:rgba(245,242,236,0.7);font-weight:500;}
+.svc-body{max-width:1200px;margin:0 auto;padding:80px 56px;}
+.svc-grid{display:grid;grid-template-columns:2fr 1fr;gap:80px;align-items:start;}
+.section-block{margin-bottom:56px;}
+.sb-label{font-size:0.65rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--amber2);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.sb-label::before{content:'';display:block;width:20px;height:2px;background:var(--amber2);flex-shrink:0;}
+.sb-heading{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--black);margin-bottom:16px;line-height:1.15;}
+.sb-body{font-size:0.92rem;color:#3a3530;line-height:1.85;}
+.sb-body p{margin-bottom:14px;}
+.sb-body p:last-child{margin-bottom:0;}
+.approach-steps{display:flex;flex-direction:column;gap:3px;margin-top:8px;}
+.a-step{display:grid;grid-template-columns:48px 1fr;background:var(--card);border:1px solid var(--border);}
+.a-step-num{background:var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:1.2rem;color:var(--amber);}
+.a-step-content{padding:18px 20px;}
+.a-step-title{font-family:var(--serif);font-size:0.95rem;font-weight:700;color:var(--black);margin-bottom:4px;}
+.a-step-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.fit-list{display:flex;flex-direction:column;gap:3px;}
+.fit-item{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--border);font-size:0.82rem;color:#3a3530;line-height:1.5;transition:border-left-color 0.2s;}
+.fit-item:hover{border-left-color:var(--amber);}
+.fit-item::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.sidebar{display:flex;flex-direction:column;gap:3px;position:sticky;top:90px;}
+.side-card{background:var(--card);border:1px solid var(--border);padding:22px 20px;}
+.side-card.dark{background:var(--black);}
+.sc-label{font-size:0.58rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.side-card.dark .sc-label{color:rgba(245,242,236,0.3);}
+.deliverable{font-size:0.78rem;color:#3a3530;display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);line-height:1.4;}
+.deliverable:last-child{border-bottom:none;}
+.deliverable::before{content:'→';color:var(--amber2);flex-shrink:0;font-size:0.72rem;margin-top:1px;}
+.sc-methods{display:flex;flex-wrap:wrap;gap:4px;}
+.sc-method{font-size:0.6rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;background:var(--white);border:1px solid var(--border);padding:4px 10px;color:var(--muted);}
+.other-services{background:var(--black);padding:72px 56px;}
+.os-inner{max-width:1200px;margin:0 auto;}
+.os-label{font-size:0.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(245,242,236,0.3);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.os-label::before{content:'';display:block;width:24px;height:2px;background:rgba(245,242,236,0.2);}
+.os-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.os-card{background:rgba(245,242,236,0.04);border:1px solid rgba(245,242,236,0.08);padding:28px 24px;text-decoration:none;transition:all 0.2s;}
+.os-card:hover{background:rgba(245,242,236,0.08);transform:translateY(-3px);}
+.os-num{font-family:var(--display);font-size:0.9rem;color:var(--amber);letter-spacing:2px;margin-bottom:8px;}
+.os-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.2;}
+.os-desc{font-size:0.72rem;color:rgba(245,242,236,0.35);letter-spacing:0.5px;}
+.os-arrow{font-size:0.8rem;color:var(--amber);margin-top:14px;display:block;transition:transform 0.2s;}
+.os-card:hover .os-arrow{transform:translateX(5px);}
+.cta-band{background:var(--amber);padding:72px 56px;}
+.cta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.cta-text{font-family:var(--display);font-size:clamp(2rem,4vw,3.5rem);color:var(--black);line-height:0.95;}
+.cta-text span{display:block;opacity:0.45;}
+.cta-sub{font-size:0.85rem;color:rgba(10,10,10,0.6);margin-top:10px;line-height:1.6;max-width:360px;}
+.btn-dark{background:var(--black);color:var(--white);font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:16px 32px;text-decoration:none;border-radius:2px;transition:background 0.2s;white-space:nowrap;}
+.btn-dark:hover{background:var(--green);}
+footer{background:var(--black);padding:32px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:3px solid var(--amber);}
+.footer-logo{display:flex;align-items:center;}.footer-logo img{height:24px;width:auto;opacity:0.6;}
+.footer-copy{font-size:0.62rem;font-weight:500;letter-spacing:1px;color:rgba(245,242,236,0.22);text-transform:uppercase;}
+.burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:0;z-index:300;}
+.burger span{display:block;width:22px;height:2px;background:var(--black);transition:all 0.3s;transform-origin:center;}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{position:fixed;inset:0;background:var(--black);z-index:250;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{font-family:var(--display);font-size:3rem;letter-spacing:2px;color:rgba(245,242,236,0.6);text-decoration:none;padding:16px 0;transition:color 0.2s;border-bottom:1px solid rgba(245,242,236,0.07);width:100%;text-align:center;}
+.mobile-menu a:first-child{border-top:1px solid rgba(245,242,236,0.07);}
+.mobile-menu a:hover{color:var(--amber);}
+.mobile-menu .mob-cta{margin-top:40px;background:var(--amber);color:var(--black);font-family:var(--sans);font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:14px 32px;border:none;border-bottom:none;width:auto;}
+@media(max-width:960px){
+  .svc-header-inner{grid-template-columns:1fr;}.svc-header-img{display:block;width:100%;max-height:260px;overflow:hidden;order:2;margin-top:24px;}
+  .sh-title{font-size:clamp(2.5rem,7vw,5rem);}
+  .svc-grid{grid-template-columns:1fr;gap:32px;}
+  .sidebar{position:static;}
+}
+@media(max-width:768px){
+  nav{padding:14px 22px;grid-template-columns:1fr auto auto;gap:12px;} .nav-cta{justify-self:auto;font-size:0.65rem;padding:7px 14px;}
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .svc-header{padding:100px 26px 56px;}
+  .svc-header-inner{grid-template-columns:1fr;}.svc-header-img{display:block;width:100%;max-height:260px;overflow:hidden;order:2;margin-top:24px;}
+  .sh-title{font-size:clamp(2.2rem,9vw,4rem);}
+  .svc-body{padding:48px 26px;}
+  .svc-grid{grid-template-columns:1fr;gap:32px;}
+  .sidebar{position:static;}
+  .other-services{padding:48px 26px;}.os-grid{grid-template-columns:1fr;}
+  .cta-band{padding:48px 26px;}.cta-inner{flex-direction:column;align-items:flex-start;}
+  footer{padding:26px 22px;}
+}
+}a{text-decoration:none;} .btn-dark, .btn-amber, .nav-cta{text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="/Website/1215_logo_cropped.png" alt="12:15" style="height:clamp(28px,3vw,40px);width:auto;"></a>
+  <ul class="nav-links">
+    <li><a href="1215-services.html" class="active">Services</a></li>
+    <li><a href="1215-work.html">Work</a></li>
+    
+    <li><a href="1215-about.html">Story</a></li>
+  </ul>
+  <a href="/cdn-cgi/l/email-protection#32585d415a724645575e4457545b544657575c1c515d1c4759" class="nav-cta">Get in touch</a>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="1215-services.html">Services</a>
+  <a href="1215-work.html">Work</a>
+  <a href="1215-about.html">Story</a>
+  <a href="#contact" class="mob-cta">Get in touch</a>
+</div>
+
+<section class="svc-header">
+  <div class="svc-header-inner">
+    <div class="svc-header-content">
+      <a href="1215-services.html" class="back-link">← All services</a>
+      <div class="sh-eyebrow">Research Service 01</div>
+      <h1 class="sh-title">Customer Profiling</h1>
+      <div class="sh-meta">
+        <div class="sh-meta-item"><div class="sh-meta-label">Engagement type</div><div class="sh-meta-val">Discovery & ICP Research</div></div>
+        <div class="sh-meta-item"><div class="sh-meta-label">Typical timeline</div><div class="sh-meta-val">4–8 weeks</div></div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<div class="svc-body">
+  <div class="svc-grid">
+  <div>
+      <div class="section-block">
+        <div class="sb-label">The problem</div>
+        <h2 class="sb-heading">You know your customers. But is that feeling evidence-based?</h2>
+        <div class="sb-body">
+          <p>Most small businesses have a good feel for their customers. They are often like them, or closely connected to the product they have built. They may speak to them all the time. They may even have a lot of data &mdash; what they bought, when they churned, how they found you.</p>
+          <p>What can sometimes be missing is a coherent, evidence-based, <em>shared</em> understanding of who those customers actually are &mdash; particularly as businesses grow and the distance between founders and end users increases. All businesses benefit from understanding what drives customer decisions, what they are trying to achieve, and what makes them stay or leave.</p>
+          <p>The result can be a business where sales, marketing and product are all targeting slightly different versions of the same customer &mdash; or worse, working from an inaccurate or outdated view. Resources get split. Messages don&rsquo;t land. The product gets pulled in conflicting directions.</p>
+          <p>Customer Profiling closes that gap. It builds an evidence-based picture of your ideal customer &mdash; not from assumptions, but from research &mdash; and gives your whole business something to align around.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="sb-label">How it works</div>
+        <h2 class="sb-heading">The approach &mdash; adapted to your context</h2>
+        <p style="font-size:0.82rem;color:var(--muted);font-style:italic;border-left:3px solid var(--amber);padding:12px 16px;background:var(--card);margin-bottom:16px;line-height:1.6;">Every engagement is shaped around your specific questions, constraints and what you already know. The steps below represent the full picture — the actual scope is agreed before anything starts.</p>
+        <div class="approach-steps">
+          <div class="a-step"><div class="a-step-num">1</div><div class="a-step-content"><div class="a-step-title">Desk research</div><div class="a-step-desc">Understanding your context, category and existing data before speaking to a single customer. This shapes everything that follows and avoids asking questions you already know the answers to.</div></div></div>
+          <div class="a-step"><div class="a-step-num">2</div><div class="a-step-content"><div class="a-step-title">In-depth customer interviews</div><div class="a-step-desc">Around 15&ndash;25 interviews &mdash; with current customers, lapsed customers and prospects &mdash; to build a rich, reliable picture of motivations, behaviours and what value actually means to different people. The number depends on the complexity of what emerges.</div></div></div>
+          <div class="a-step"><div class="a-step-num">3</div><div class="a-step-content"><div class="a-step-title">Identify segments</div><div class="a-step-desc">Finding meaningful clusters in the findings &mdash; going beyond demographics to identify the behavioural and attitudinal patterns that actually predict fit, value and retention.</div></div></div>
+          <div class="a-step"><div class="a-step-num">4</div><div class="a-step-content"><div class="a-step-title">Size the segments</div><div class="a-step-desc">Survey validation where needed to confirm qualitative findings reflect real proportions in your customer base &mdash; and to understand how large each opportunity actually is.</div></div></div>
+          <div class="a-step"><div class="a-step-num">5</div><div class="a-step-content"><div class="a-step-title">Workshops &amp; stakeholder buy-in</div><div class="a-step-desc">Collaborative sessions woven throughout the process &mdash; not just presented at the end. Involving your team in analysis and sense-checking builds genuine shared ownership, so the work changes behaviour rather than sitting in a deck.</div></div></div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="sb-label">Deliverables</div>
+        <h2 class="sb-heading">Typical outputs</h2>
+        <div class="fit-list">
+          <div class="fit-item">Validated Ideal Customer Profiles with behavioural depth</div>
+          <div class="fit-item">Segmentation framework your whole business can use</div>
+          <div class="fit-item">Customer journey map — where you win, lose and frustrate</div>
+          <div class="fit-item">Strategic recommendations tied to your business questions</div>
+          <div class="fit-item">Workshop-ready materials for internal alignment</div>
+        </div>
+      </div>
+    </div>
+
+  <div class="sidebar">
+    <div class="side-card">
+      <div class="sc-label">You might need this if...</div>
+      <div class="deliverable">Sales and marketing are targeting different customers</div>
+      <div class="deliverable">You're scaling and losing touch with who you serve</div>
+      <div class="deliverable">You've never formally profiled your ideal customer</div>
+      <div class="deliverable">You're entering a new segment or market</div>
+      <div class="deliverable">Messaging isn't converting despite strong traffic</div>
+    </div>
+  </div>
+</div>
+
+<div class="other-services">
+  <div class="os-inner">
+    <div class="os-label">Other services</div>
+    <div class="os-grid">
+      <a href="1215-service-strategy.html" class="os-card">
+        <div class="os-num">02</div>
+        <div class="os-title">Product Strategy</div>
+        <div class="os-desc">Take the guesswork out of your roadmap</div>
+        <span class="os-arrow">→</span>
+      </a>
+      <a href="1215-service-usability.html" class="os-card">
+        <div class="os-num">03</div>
+        <div class="os-title">Usability Optimisation</div>
+        <div class="os-desc">Diagnose friction, prioritise fixes</div>
+        <span class="os-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band" id="contact">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-text">Let's<br><span>talk.</span></div>
+      <p class="cta-sub">Tell us what you're wrestling with — we'll figure out together whether we can help. No commitment, no pitch.</p>
+    </div>
+    <a href="/cdn-cgi/l/email-protection#1c76736f745c686b79706a797a757a68797972327f73326977" class="btn-dark">Get in touch</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><span class="footer-logo-mark">12</span><span>:15</span></div>
+  <div class="footer-links">
+    <a href="1215-services.html">S
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const nav=document.getElementById('nav');
+const burger=document.getElementById('burger');
+const mobileMenu=document.getElementById('mobileMenu');
+if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});}
+if(burger&&mobileMenu){
+  burger.addEventListener('click',()=>{
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',()=>{
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow='';
+   

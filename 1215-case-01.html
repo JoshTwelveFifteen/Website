@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aligning On The Right Customer — 12:15</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f5f2ec;--green:#1a3a2a;--amber:#f0a020;--amber2:#c8732a;--muted:#8a8070;--border:#d8d0c0;--card:#f0ebe2;--sans:'DM Sans',sans-serif;--serif:'Playfair Display',Georgia,serif;--display:'Bebas Neue',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--black);font-family:var(--sans);font-size:15px;line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 48px;background:rgba(245,242,236,0.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border);}
+.nav-logo{font-family:var(--display);font-size:2rem;color:var(--black);text-decoration:none;letter-spacing:1px;line-height:1;}
+.nav-logo span{color:var(--amber);}
+.nav-links{display:flex;gap:36px;list-style:none;justify-self:center;}
+.nav-links a{font-size:0.72rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--amber);}
+.nav-cta{font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--black);background:var(--amber);padding:9px 22px;text-decoration:none;border-radius:2px;transition:all 0.2s;justify-self:end;}
+.nav-cta:hover{background:var(--amber2);color:var(--white);}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:0.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(245,242,236,0.45);text-decoration:none;transition:color 0.2s;margin-bottom:32px;}
+.back-link:hover{color:var(--amber);}
+.case-header{padding:140px 56px 80px;position:relative;overflow:hidden;}
+.case-header-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.case-header-content{}
+.case-header-img{display:none;}
+.case-header-img-placeholder{font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(245,242,236,0.2);}
+.case-header-bg-num{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:clamp(12rem,20vw,22rem);color:rgba(245,242,236,0.04);line-height:1;pointer-events:none;user-select:none;}
+.case-header::before{display:none;}
+.ch-tag{font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.ch-tag::before{content:'';display:block;width:24px;height:2px;background:var(--amber);}
+.ch-title{font-family:var(--display);font-size:clamp(3.5rem,7vw,8rem);line-height:0.88;letter-spacing:1px;color:var(--white);margin-bottom:40px;}
+.ch-meta{display:flex;gap:3px;flex-wrap:wrap;}
+.ch-meta-item{background:rgba(245,242,236,0.06);border:1px solid rgba(245,242,236,0.1);padding:10px 16px;min-width:0;flex:1;}
+.ch-meta-label{font-size:0.55rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(245,242,236,0.3);margin-bottom:3px;}
+.ch-meta-val{font-size:0.8rem;color:rgba(245,242,236,0.7);font-weight:500;}
+.case-body{max-width:1200px;margin:0 auto;padding:80px 56px;}
+.case-grid{display:grid;grid-template-columns:2fr 1fr;gap:80px;align-items:start;}
+.section-block{margin-bottom:56px;}
+.section-block:last-child{margin-bottom:0;}
+.sb-label{font-size:0.65rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--amber2);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.sb-label::before{content:'';display:block;width:20px;height:2px;background:var(--amber2);flex-shrink:0;}
+.sb-heading{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--black);margin-bottom:16px;line-height:1.15;}
+.sb-body{font-size:0.92rem;color:#3a3530;line-height:1.85;}
+.sb-body p{margin-bottom:14px;}
+.sb-body p:last-child{margin-bottom:0;}
+.pull-quote{background:var(--black);padding:28px 24px;margin:28px 0;position:relative;}
+.pull-quote::before{content:'"';font-family:var(--serif);font-size:4rem;color:var(--amber);line-height:0.7;display:block;margin-bottom:12px;}
+.pull-quote p{font-family:var(--serif);font-size:1rem;font-style:italic;color:rgba(245,242,236,0.8);line-height:1.55;}
+.approach-steps{display:flex;flex-direction:column;gap:3px;margin-top:8px;}
+.a-step{display:grid;grid-template-columns:48px 1fr;background:var(--card);border:1px solid var(--border);}
+.a-step-num{background:var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:1.2rem;color:var(--amber);}
+.a-step-content{padding:18px 20px;}
+.a-step-title{font-family:var(--serif);font-size:0.95rem;font-weight:700;color:var(--black);margin-bottom:4px;}
+.a-step-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.sidebar{display:flex;flex-direction:column;gap:3px;position:sticky;top:90px;}
+.side-card{background:var(--card);border:1px solid var(--border);padding:22px 20px;}
+.side-card.dark{background:var(--black);border-color:transparent;}
+.sc-label{font-size:0.58rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.side-card.dark .sc-label{color:rgba(245,242,236,0.3);}
+.sc-methods{display:flex;flex-wrap:wrap;gap:4px;}
+.sc-method{font-size:0.6rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;background:var(--white);border:1px solid var(--border);padding:4px 10px;color:var(--muted);}
+.outcome-block{background:var(--green);padding:28px 24px;}
+.ob-stat{margin-bottom:16px;}
+.ob-num{font-family:var(--display);font-size:2.8rem;color:var(--amber);line-height:1;margin-bottom:2px;}
+.ob-label{font-size:0.7rem;color:rgba(245,242,236,0.5);line-height:1.4;}
+.ob-divider{height:1px;background:rgba(245,242,236,0.1);margin:16px 0;}
+.ob-summary{font-size:0.8rem;color:rgba(245,242,236,0.6);line-height:1.6;}
+.next-cases{background:var(--black);padding:72px 56px;}
+.next-inner{max-width:1200px;margin:0 auto;}
+.next-label{font-size:0.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(245,242,236,0.3);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.next-label::before{content:'';display:block;width:24px;height:2px;background:rgba(245,242,236,0.2);}
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.next-card{background:rgba(245,242,236,0.04);border:1px solid rgba(245,242,236,0.08);padding:28px 24px;text-decoration:none;transition:all 0.2s;}
+.next-card:hover{background:rgba(245,242,236,0.08);transform:translateY(-3px);}
+.nc-num{font-family:var(--display);font-size:0.9rem;color:var(--amber);letter-spacing:2px;margin-bottom:8px;}
+.nc-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.2;}
+.nc-tag{font-size:0.6rem;color:rgba(245,242,236,0.3);letter-spacing:1px;}
+.nc-arrow{font-size:0.8rem;color:var(--amber);margin-top:14px;display:block;transition:transform 0.2s;}
+.next-card:hover .nc-arrow{transform:translateX(5px);}
+footer{background:var(--black);padding:32px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:3px solid var(--amber);}
+.footer-logo{font-family:var(--display);font-size:1.6rem;color:rgba(245,242,236,0.6);letter-spacing:1px;}
+.footer-logo span{color:var(--amber);}
+.footer-copy{font-size:0.62rem;font-weight:500;letter-spacing:1px;color:rgba(245,242,236,0.22);text-transform:uppercase;}
+.burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:0;z-index:300;}
+.burger span{display:block;width:22px;height:2px;background:var(--black);transition:all 0.3s;transform-origin:center;}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{position:fixed;inset:0;background:var(--black);z-index:250;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{font-family:var(--display);font-size:3rem;letter-spacing:2px;color:rgba(245,242,236,0.6);text-decoration:none;padding:16px 0;transition:color 0.2s;border-bottom:1px solid rgba(245,242,236,0.07);width:100%;text-align:center;}
+.mobile-menu a:first-child{border-top:1px solid rgba(245,242,236,0.07);}
+.mobile-menu a:hover{color:var(--amber);}
+.mobile-menu .mob-cta{margin-top:40px;background:var(--amber);color:var(--black);font-family:var(--sans);font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:14px 32px;border:none;border-bottom:none;width:auto;}
+@media(max-width:960px){
+  .case-header-inner{grid-template-columns:1fr;gap:32px;}
+  .case-header-img{display:none;}
+  .ch-title{font-size:clamp(2.5rem,7vw,5rem);}
+  .case-grid{grid-template-columns:1fr;gap:32px;}
+  .sidebar{position:static;}
+}
+@media(max-width:768px){
+  nav{padding:14px 22px;grid-template-columns:1fr auto auto;gap:12px;} .nav-cta{justify-self:auto;font-size:0.65rem;padding:7px 14px;}
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .case-header{padding:100px 26px 56px;}
+  .case-header-inner{grid-template-columns:1fr;gap:32px;}
+  .case-header-img{display:none;}
+  .ch-title{font-size:clamp(2.2rem,9vw,4rem);}
+  .case-body{padding:48px 26px;}
+  .case-grid{grid-template-columns:1fr;gap:32px;}
+  .sidebar{position:static;}
+  .next-cases{padding:48px 26px;}.next-grid{grid-template-columns:1fr;}
+  .sb-heading{font-size:1.2rem;}
+  footer{padding:26px 22px;}
+}
+
+.case-header{background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.65)),url(/Website/case-3.jpg);background-size:cover;background-position:center;}
+.case-header::before{display:none;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="/Website/1215_logo_cropped.png" alt="12:15" style="height:clamp(28px,3vw,40px);width:auto;"></a>
+  <ul class="nav-links">
+    <li><a href="1215-services.html">Services</a></li>
+    <li><a href="1215-work.html" class="active">Work</a></li>
+    
+    <li><a href="1215-about.html">Story</a></li>
+  </ul>
+  <a href="/cdn-cgi/l/email-protection#12787d617a526665777e6477747b746677777c3c717d3c6779" class="nav-cta">Get in touch</a>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="1215-services.html">Services</a>
+  <a href="1215-work.html">Work</a>
+  <a href="1215-about.html">Story</a>
+  <a href="#contact" class="mob-cta">Get in touch</a>
+</div>
+
+<section class="case-header">
+  <div class="case-header-inner" style="display:grid;grid-template-columns:1fr;gap:0;align-items:end;max-width:800px;">
+    <div class="case-header-content">
+      <a href="1215-work.html" class="back-link">← All case studies</a>
+      <div class="ch-tag">ICP · FinTech · Payments</div>
+      <h1 class="ch-title">Aligning On The Right Customer</h1>
+      <div class="ch-meta" style="display:flex;flex-wrap:nowrap;gap:3px;"><div class="ch-meta-item"><div class="ch-meta-label">Sector</div><div class="ch-meta-val">Payments</div></div><div class="ch-meta-item"><div class="ch-meta-label">Engagement</div><div class="ch-meta-val">Discovery & ICP Research</div></div><div class="ch-meta-item"><div class="ch-meta-label">Methods</div><div class="ch-meta-val">Qual & Data Analysis</div></div></div>
+    </div>
+    <div class="case-header-img"><img src="/Website/case-3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+  </div>
+</section>
+
+<div class="case-body">
+  <div class="case-grid">
+    <div>
+      <div class="section-block">
+        <div class="sb-label">The challenge</div>
+        <h2 class="sb-heading">Uneven growth, no shared customer picture</h2>
+        <div class="sb-body"><p>A fast-growing international payments business was seeing uneven results across regions — but it was unclear why.</p>
+<p>Part of the answer lay in a tension between how leadership understood the customer and how those closer to the ground experienced them day to day. This disconnect was quietly shaping targets, product direction and messaging — pulling the business in different directions without anyone naming it directly.</p>
+<p>The brief had three objectives: build a shared, evidence-based picture of who the ideal customer is and why they choose the product; understand customer expectations and what would make for a genuinely winning proposition; and identify the right media and messaging approach to reach them more effectively.</p></div>
+      </div>
+
+      <div class="section-block">
+        <div class="sb-label">The approach</div>
+        <h2 class="sb-heading">From assumption to evidence</h2>
+        <div class="approach-steps">
+          <div class="a-step"><div class="a-step-num">1</div><div class="a-step-content"><div class="a-step-title">Desk research & data analysis</div><div class="a-step-desc">Review of existing internal data, user testing findings and other discovery work. Combined with analysis of the customer base and relevant macro-economic data to build context before speaking to anyone.</div></div></div>
+          <div class="a-step"><div class="a-step-num">2</div><div class="a-step-content"><div class="a-step-title">Stakeholder interviews</div><div class="a-step-desc">Mapped existing assumptions and perspectives across the business — surfacing where leadership and ground-level teams diverged, and identifying the specific questions the research needed to resolve.</div></div></div>
+          <div class="a-step"><div class="a-step-num">3</div><div class="a-step-content"><div class="a-step-title">In-depth customer interviews</div><div class="a-step-desc">40+ interviews with current customers and prospects across the UK. Explored decision-making journeys, what value actually meant to different people, product expectations and what a winning proposition would look like.</div></div></div>
+          <div class="a-step"><div class="a-step-num">4</div><div class="a-step-content"><div class="a-step-title">Segmentation analysis</div><div class="a-step-desc">Identified distinct behavioural and attitudinal clusters within the customer base — going beyond company size and sector to understand what actually predicted fit, satisfaction and retention.</div></div></div>
+          <div class="a-step"><div class="a-step-num">5</div><div class="a-step-content"><div class="a-step-title">Cross-business workshop</div><div class="a-step-desc">Collaborative session with marketing, design, product, commercial and local and international leadership. Built shared ownership of the findings and translated them into agreed priorities across messaging, product and targeting.</div></div></div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="sb-label">The outcome</div>
+        <h2 class="sb-heading">A shared language for growth</h2>
+        <div class="sb-body"><p>The research produced a set of data-powered Ideal Customer Profiles that unified sales, marketing and product around a common understanding of who they were building for and why.</p>
+<p>The ICPs identified a previously under-prioritised customer segment that had significantly higher lifetime value and lower churn than the existing focus audience. Shifting towards this segment had tangible effects on acquisition efficiency and retention metrics.</p>
+<p>Perhaps as importantly: for the first time, every team was working from the same picture of the customer. The misalignment that had been quietly costing the business was resolved.</p></div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="side-card">
+        <div class="sc-label">Methods used</div>
+        <div class="sc-methods"><span class="sc-method">Stakeholder interviews</span><span class="sc-method">In-depth interviews</span><span class="sc-method">Data analysis</span><span class="sc-method">Customer segmentation</span><span class="sc-method">Cross-business workshop</span><span class="sc-method">ICP framework</span></div>
+      </div>
+      <div class="outcome-block">
+        <div class="sc-label" style="color:rgba(245,242,236,0.35);font-size:0.58rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;">Results</div>
+        <div class="ob-stat"><div class="ob-num">40+</div><div class="ob-label">Customer interviews across the UK</div></div><div class="ob-divider"></div><div class="ob-stat"><div class="ob-num">1</div><div class="ob-label">Shared ICP framework adopted across the business</div></div><div class="ob-divider"></div>
+      </div>
+      <div class="side-card" style="background:var(--card);border-left:3px solid var(--amber);">
+        <div class="sc-label">Something else in mind?</div>
+        <p style="font-size:0.78rem;color:var(--muted);line-height:1.6;margin-bottom:14px;">Tell me what you're trying to figure out. We'll work out together whether research can help.</p>
+        <a href="/cdn-cgi/l/email-protection#53393c203b132724363f2536353a352736363d7d303c7d2638" style="font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber2);text-decoration:none;display:flex;align-items:center;gap:6px;">Get in touch →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="next-cases">
+  <div class="next-inner">
+    <div class="next-label">More work</div>
+    <div class="next-grid"><a href="1215-case-02.html" class="next-card"><div class="nc-num">02</div><div class="nc-title">Making the Case for a New Product</div><div class="nc-tag">Product Strategy · Mobile · FinTech</div><span class="nc-arrow">→</span></a><a href="1215-case-03.html" class="next-card"><div class="nc-num">03</div><div class="nc-title">Empowering the Novice Investor</div><div class="nc-tag">Behaviour Change · Consumer · Investing</div><span class="nc-arrow">→</span></a></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="/Website/1215_logo_cropped.png" alt="12:15" style="height:28px;
+<script>
+const nav=document.getElementById('nav');
+const burger=document.getElementById('burger');
+const mobileMenu=document.getElementById('mobileMenu');
+if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});}
+if(burger&&mobileMenu){
+  burger.addEventListener('click',()=>{
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',()=>{
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+}
+document.querySelectorAll('.reveal').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIn
