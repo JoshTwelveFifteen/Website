@@ -2,10 +2,17 @@
 <html lang="en">
 <head>
 <style>
-/* Issue #5 - Right-aligned mobile menu */
 @media (max-width: 768px) {
+    #nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    
     .burger {
         display: block !important;
+        margin-left: auto;
         background: none;
         border: none;
         cursor: pointer;
@@ -14,37 +21,27 @@
     .nav-links {
         display: none;
         position: absolute;
-        top: 100%;                    /* Below nav */
-        right: 20px;                  /* RIGHT ALIGNED! */
-        left: auto;                   /* Override center */
-        min-width: 200px;             /* Fixed width */
+        top: 100%;
+        right: 20px;
+        left: auto;
+        min-width: 200px;
         background: #fff;
         flex-direction: column;
         padding: 15px 20px;
-        margin: 0;
         box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         z-index: 1000;
-        list-style: none;
-        border-radius: 8px;
     }
     
     .nav-links.active {
         display: flex !important;
     }
     
-    /* Menu links */
     .nav-links a {
         color: #333 !important;
-        text-decoration: none;
         padding: 10px 0;
-        font-size: 16px;
-        border-bottom: 1px solid #eee;
-    }
-    .nav-links a:last-child {
-        border-bottom: none;
+        text-decoration: none;
     }
     
-    /* Burger lines */
     .burger span {
         display: block;
         width: 25px;
@@ -53,11 +50,6 @@
         background: #333;
         transition: 0.3s;
     }
-    
-    /* X animation */
-    .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .burger.active span:nth-child(2) { opacity: 0; }
-    .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 }
 </style>
 
