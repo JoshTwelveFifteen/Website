@@ -33,35 +33,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:grid;grid-template-c
 .nav-cta { justify-self: end; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--black); background: var(--amber); padding: 9px 22px; text-decoration: none; border-radius: 2px; transition: all 0.2s; }
 .nav-cta:hover { background: var(--amber2); color: var(--white); }
 
-<!-- NAV mobile burger -->
-<div class="nav-wrapper">
-    <button class="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <!-- match these links to your 7 pages -->
-    </ul>
-</div>
-<!-- END NAV mobile burger -->
-
-<style>
-@media (max-width: 768px) {
-    /* keep your existing burger/nav styles here unchanged */
-    .nav-links a {
-        color: #333 !important;
-        text-align: right;
-        padding: 12px 20px 12px 40px !important;
-    }
-}
-</style>
-
-
-
 /* PAGE HEADER */
 .page-header {
   background: var(--black);
@@ -532,37 +503,3 @@ if(burger&&mobileMenu){
 }
 document.querySelectorAll('.reveal').forEach(el=>{
   new IntersectionObserver(([e])=>{if(e.isIn
-<!-- NAV script -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (burger && navLinks) {
-        burger.addEventListener('click', function (e) {
-            e.stopPropagation();
-            burger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        document.addEventListener('click', function (e) {
-            if (!burger.contains(e.target) && !navLinks.contains(e.target)) {
-                burger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
-
-        const navLinksAnchors = navLinks.querySelectorAll('a');
-        navLinksAnchors.forEach((link) => {
-            link.addEventListener('click', function () {
-                burger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-});
-</script>
-<!-- END NAV script -->
-
-</body>
-</html>
