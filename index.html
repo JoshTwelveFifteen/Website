@@ -3,53 +3,13 @@
 <head>
 <style>
 @media (max-width: 768px) {
-    .burger {
-        display: block !important;
-        background: none;
-        border: none;
-        padding: 8px 6px;  /* Centers button */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-    }
-    
-    /* PERFECTLY CENTERED WHITE LINES */
-    .burger span {
-        display: block !important;
-        width: 25px;
-        height: 3px !important;
-        margin: 0;
-        background: white !important;
-        transition: 0.3s;
-    }
-    
-    .nav-links {
-        display: none !important;
-        position: absolute;
-        top: 100%;
-        right: 20px;
-        background: white;
-        min-width: 220px;
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        z-index: 999;
-    }
-    
-    .nav-links.active {
-        display: flex !important;
-    }
-    
-    .nav-links a {
-        color: #333 !important;
-        padding: 12px 8px !important;
-        text-decoration: none !important;
-    }
+    .burger span { background: white !important; }
+    .nav-links { display: none; }
+    .nav-links.active { display: flex !important; }
+    .nav-links, .nav-links a { color: #333 !important; }
 }
 </style>
+
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
