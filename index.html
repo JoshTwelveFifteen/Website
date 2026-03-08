@@ -5,18 +5,27 @@
 @media (max-width: 768px) {
     .burger {
         display: block !important;
+        background: none;
+        border: none;
+        padding: 8px 6px;  /* Centers button */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
     }
     
-    /* WHITE 3-LINE BURGER */
+    /* PERFECTLY CENTERED WHITE LINES */
     .burger span {
         display: block !important;
         width: 25px;
         height: 3px !important;
-        margin: 5px auto;
+        margin: 0;
         background: white !important;
+        transition: 0.3s;
     }
     
-    /* HIDE MENU UNTIL CLICKED */
     .nav-links {
         display: none !important;
         position: absolute;
@@ -34,21 +43,13 @@
         display: flex !important;
     }
     
-    /* FORCE VISIBLE BLACK TEXT */
-    .nav-links,
-    .nav-links a,
-    .nav-links li {
-        color: #333 !important;
-        text-shadow: none !important;
-    }
-    
     .nav-links a {
+        color: #333 !important;
         padding: 12px 8px !important;
         text-decoration: none !important;
     }
 }
 </style>
-
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
