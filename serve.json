@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/Website/:file", "destination": "/:file" }
-  ],
   "headers": [
     {
       "source": "**/*.html",
