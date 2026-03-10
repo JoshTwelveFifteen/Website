@@ -245,16 +245,16 @@ footer { background: var(--black); padding: 32px 56px; display: flex; align-item
 .mobile-menu a:hover{color:var(--amber);}
 .mobile-menu .mob-cta{margin-top:40px;background:var(--amber);color:var(--black);font-family:var(--sans);font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:14px 32px;border:none;border-bottom:none;width:auto;}
 @media (max-width: 960px) {
+  nav { padding: 14px 22px; grid-template-columns: 1fr auto auto; gap: 12px; }
+  .nav-links { display: none; }
+  .nav-cta { justify-self: auto; font-size: 0.65rem; padding: 7px 14px; }
+  .burger { display: flex; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .career-grid { grid-template-columns: 1fr; }
   .page-header-inner { grid-template-columns: 1fr; gap: 16px; }
 }
 @media (max-width: 768px) {
-  nav { padding: 14px 22px; display: grid; grid-template-columns: 1fr auto auto; gap: 12px; }
-  nav { grid-template-columns: 1fr auto auto; gap: 12px; }
-  .nav-cta { justify-self: auto; font-size: 0.65rem; padding: 7px 14px; }
-  .nav-links { display: none; }
-  .burger { display: flex; }
+
   .page-header { padding: 100px 26px 32px; overflow: hidden; }
   .page-header-inner { grid-template-columns: 1fr; gap: 16px; }
   .ph-headline { font-size: clamp(3rem, 10vw, 5rem); }
