@@ -105,20 +105,20 @@ nav.scrolled .burger span{background:var(--black);}
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-logo"><img src="/Website/1215_logo_cropped.png" alt="12:15" style="height:clamp(28px,3vw,40px);width:auto;"></a>
+  <a href="/" class="nav-logo"><img src="/Website/1215_logo_cropped.png" alt="12:15" style="height:clamp(28px,3vw,40px);width:auto;"></a>
   <ul class="nav-links">
-    <li><a href="1215-services.html">Services</a></li>
-    <li><a href="1215-work.html" class="active">Work</a></li>
-    <li><a href="1215-about.html">Story</a></li>
+    <li><a href="/1215-services">Services</a></li>
+    <li><a href="/1215-work" class="active">Work</a></li>
+    <li><a href="/1215-about">Story</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get in touch</a>
   <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="1215-services.html">Services</a>
-  <a href="1215-work.html">Work</a>
-  <a href="1215-about.html">Story</a>
+  <a href="/1215-services">Services</a>
+  <a href="/1215-work">Work</a>
+  <a href="/1215-about">Story</a>
   <a href="#contact" class="mob-cta">Get in touch</a>
 </div>
 
@@ -141,7 +141,7 @@ nav.scrolled .burger span{background:var(--black);}
 
 <div class="cases-wrap">
 
-  <a href="1215-case-01.html" class="case-card">
+  <a href="/1215-case-01" class="case-card">
     <div class="cc-colour green" style="background-image:linear-gradient(rgba(15,45,25,0.72),rgba(15,45,25,0.85)),url(/Website/case-3.jpg);background-size:cover;background-position:center;">
       <div class="cc-big-num">01</div>
       <div class="cc-tag">ICP · FinTech · Payments</div>
@@ -164,7 +164,7 @@ nav.scrolled .burger span{background:var(--black);}
     </div>
   </a>
 
-  <a href="1215-case-02.html" class="case-card">
+  <a href="/1215-case-02" class="case-card">
     <div class="cc-colour blue" style="background-image:linear-gradient(rgba(10,20,40,0.72),rgba(10,20,40,0.85)),url(/Website/case-2.jpg);background-size:cover;background-position:center top;">
       <div class="cc-big-num">02</div>
       <div class="cc-tag">Product Strategy · Mobile · FinTech</div>
@@ -187,7 +187,7 @@ nav.scrolled .burger span{background:var(--black);}
     </div>
   </a>
 
-  <a href="1215-case-03.html" class="case-card">
+  <a href="/1215-case-03" class="case-card">
     <div class="cc-colour brown" style="background-image:linear-gradient(rgba(30,15,5,0.72),rgba(30,15,5,0.85)),url(/Website/case-1.jpg);background-size:cover;background-position:center;">
       <div class="cc-big-num">03</div>
       <div class="cc-tag">Behaviour Change · Consumer · Investing</div>
@@ -244,8 +244,6 @@ if(burger&&mobileMenu){
     });
   });
 }
-document.querySelectorAll('.reveal
-').forEach(el=>{
 document.querySelectorAll('.reveal').forEach(el=>{
   new IntersectionObserver(([e])=>{if(e.isIntersecting){el.classList.add('visible');}},{threshold:0.1}).observe(el);
 });
