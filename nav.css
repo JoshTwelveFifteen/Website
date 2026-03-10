@@ -40,11 +40,16 @@ nav.scrolled .nav-logo {
     color: var(--black);
 }
 
+/* Desktop Navigation */
 .nav-links {
     display: flex;
     gap: 36px;
     list-style: none;
     justify-self: center;
+}
+
+.nav-links li {
+    list-style: none;
 }
 
 .nav-links a {
@@ -85,7 +90,7 @@ nav.scrolled .nav-links a {
     color: var(--white);
 }
 
-/* Burger Menu */
+/* Burger Menu (hidden on desktop) */
 .burger {
     display: none;
     flex-direction: column;
@@ -122,42 +127,7 @@ nav.scrolled .burger span {
     background: #333;
 }
 
-/* Mobile Navigation Dropdown */
-.nav-links {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
-    min-width: 160px;
-    padding: 10px 0;
-    z-index: 1000;
-    flex-direction: column;
-}
-
-.nav-links li {
-    list-style: none;
-}
-
-.nav-links a {
-    display: block;
-    padding: 10px 16px;
-    color: #333;
-    text-decoration: none;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    transition: background 0.2s;
-}
-
-.nav-links a:hover {
-    background: var(--amber);
-    color: var(--black);
-}
-
-/* Tablet & Mobile */
+/* Mobile/Tablet Styles */
 @media (max-width: 768px) {
     nav {
         padding: 14px 22px;
@@ -169,8 +139,45 @@ nav.scrolled .burger span {
         font-size: 1.4rem;
     }
 
+    /* Hide horizontal menu on mobile */
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        min-width: 160px;
+        padding: 10px 0;
+        z-index: 1000;
+        flex-direction: column;
+        gap: 0;
+        justify-self: unset;
+        margin-top: 8px;
+    }
+
+    /* Show as dropdown when active */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 16px;
+        color: #333;
+        font-size: 0.7rem;
+        color: #333;
+        background: transparent;
+    }
+
+    nav.scrolled .nav-links a {
+        color: #333;
+    }
+
+    .nav-links a:hover {
+        background: var(--amber);
+        color: var(--black);
     }
 
     .nav-cta {
@@ -179,6 +186,7 @@ nav.scrolled .burger span {
         padding: 7px 14px;
     }
 
+    /* Show burger menu on mobile */
     .burger {
         display: flex;
     }
