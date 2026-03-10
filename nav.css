@@ -127,8 +127,8 @@ nav.scrolled .burger span {
     background: #333;
 }
 
-/* Mobile/Tablet Styles */
-@media (max-width: 768px) {
+/* Mobile/Tablet Styles — 960px matches homepage breakpoint */
+@media (max-width: 960px) {
     nav {
         padding: 14px 22px;
         grid-template-columns: 1fr auto auto;
@@ -139,55 +139,17 @@ nav.scrolled .burger span {
         font-size: 1.4rem;
     }
 
-    /* Hide horizontal menu on mobile */
-    .nav-links {
+    /* Hide desktop nav links and CTA — use higher specificity to override inline page styles */
+    nav .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
-        min-width: 160px;
-        padding: 10px 0;
-        z-index: 1000;
-        flex-direction: column;
-        gap: 0;
-        justify-self: unset;
-        margin-top: 8px;
     }
 
-    /* Show as dropdown when active */
-    .nav-links.active {
-        display: flex;
+    nav .nav-cta {
+        display: none;
     }
 
-    .nav-links a {
-        display: block;
-        padding: 10px 16px;
-        color: #333;
-        font-size: 0.7rem;
-        color: #333;
-        background: transparent;
-    }
-
-    nav.scrolled .nav-links a {
-        color: #333;
-    }
-
-    .nav-links a:hover {
-        background: var(--amber);
-        color: var(--black);
-    }
-
-    .nav-cta {
-        justify-self: auto;
-        font-size: 0.65rem;
-        padding: 7px 14px;
-    }
-
-    /* Show burger menu on mobile */
-    .burger {
+    /* Show burger — higher specificity (nav .burger = 0,1,1) beats inline .burger (0,1,0) */
+    nav .burger {
         display: flex;
     }
 }
