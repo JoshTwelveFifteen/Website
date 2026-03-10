@@ -1,90 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-@media (max-width: 768px) {
-    .burger {
-        display: flex !important;
-        flex-direction: column;
-        gap: 4px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 5px;
-    }
-    
-    .burger span {
-        height: 3px;
-        width: 25px;
-        background: #333;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-    
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        border-radius: 8px;
-        min-width: 160px;
-        padding: 10px 0;
-        z-index: 1000;
-    }
-    
-    .nav-links.active {
-        display: block;
-    }
-    
-    .burger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-    }
-    
-    .burger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .burger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    burger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        burger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-    
-    document.addEventListener('click', function(e) {
-        if (!burger.contains(e.target) && !navLinks.contains(e.target)) {
-            burger.classList.remove('active');
-            navLinks.classList.remove('active');
-        }
-    });
-});
-</script>
-
-
-<script>
-document.querySelector('.burger').addEventListener('click', function() {
-    this.classList.toggle('active');
-    document.querySelector('.nav-links').classList.toggle('active');
-});
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>12:15 — Insight. Foresight. Moresight.</title>
 <meta name="description" content="12:15 turns customer understanding into competitive advantage — through research, strategy and insight-led consultancy.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nav.css">
 <style>
 :root{--black:#0a0a0a;--white:#f5f2ec;--green:#1a3a2a;--amber:#f0a020;--amber2:#c8732a;--muted:#8a8070;--border:#d8d0c0;--card:#f0ebe2;--sans:'DM Sans',sans-serif;--serif:'Playfair Display',Georgia,serif;--display:'Bebas Neue',sans-serif;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -100,6 +22,17 @@ nav.scrolled .nav-links a{color:var(--muted);}
 .nav-links a:hover,nav.scrolled .nav-links a:hover{color:var(--amber);}
 .nav-cta{font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--black);background:var(--amber);padding:9px 22px;text-decoration:none;border-radius:2px;transition:all 0.2s;justify-self:end;width:fit-content;}
 .nav-cta:hover{background:var(--amber2);color:var(--white);}
+.burger{display:none;}
+.burger span{height:3px;width:25px;background:#fff;border-radius:2px;transition:all 0.3s;}
+@media (max-width: 768px){
+.burger{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:5px;}
+.burger span{background:#333;}
+.nav-links{display:none;position:absolute;top:100%;right:0;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15);border-radius:8px;min-width:160px;padding:10px 0;z-index:1000;}
+.nav-links.active{display:flex;flex-direction:column;}
+.burger.active span:nth-child(1){transform:rotate(45deg) translate(7px, 7px);}
+.burger.active span:nth-child(2){opacity:0;}
+.burger.active span:nth-child(3){transform:rotate(-45deg) translate(7px, -7px);}
+}
 .hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:120px 48px 80px;}
 .hero-video{position:absolute;inset:0;z-index:0;}
 .hero-video video{width:100%;height:100%;object-fit:cover;}
@@ -537,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
-
+<script src="nav.js"></script>
 </body>
 </html>
 
