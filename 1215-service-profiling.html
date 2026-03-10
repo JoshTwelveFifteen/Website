@@ -256,4 +256,13 @@ if(burger&&mobileMenu){
       burger.classList.remove('open');
       mobileMenu.classList.remove('open');
       document.body.style.overflow='';
-   
+    });
+  });
+}
+
+document.querySelectorAll('.reveal').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting){el.classList.add('visible');}},{threshold:0.1}).observe(el);
+});
+</script>
+</body>
+</html>

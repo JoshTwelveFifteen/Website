@@ -269,3 +269,8 @@ if(burger&&mobileMenu){
 }
 document.querySelectorAll('.reveal').forEach(el=>{
   new IntersectionObserver(([e])=>{if(e.isIntersecting){el.classList.add('visible');}},{thr
+eshold:0.1}).observe(el);
+});
+</script>
+</body>
+</html>
