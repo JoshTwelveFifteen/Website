@@ -116,7 +116,7 @@ footer{background:var(--black);padding:32px 56px;display:flex;align-items:center
 </style>
 </head>
 <body>
-<nav>
+<nav class="light">
   <a href="/" class="nav-logo"><img src="/Website/1215_logo_cropped.png" alt="12:15" style="height:clamp(28px,3vw,40px);width:auto;"></a>
   <ul class="nav-links">
     <li><a href="/1215-services" class="active">SERVICES</a></li>
@@ -129,10 +129,11 @@ footer{background:var(--black);padding:32px 56px;display:flex;align-items:center
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/1215-services">SERVICES</a>
+  <a href="/1215-services" class="active">SERVICES</a>
   <a href="/1215-work">WORK</a>
   <a href="/1215-about">STORY</a>
   <a href="#contact" class="mob-cta">Get in touch</a>
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
 </div>
 
 <section class="svc-header">
@@ -234,23 +235,16 @@ const burger=document.getElementById('burger');
 const mobileMenu=document.getElementById('mobileMenu');
 if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});}
 if(burger&&mobileMenu){
+  const closeMenu=()=>{burger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';};
   burger.addEventListener('click',()=>{
     burger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
     document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
   });
-  mobileMenu.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click',()=>{
-      burger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow='';
-    });
-  });
+  const closeBtn=document.getElementById('mobileClose');
+  if(closeBtn){closeBtn.addEventListener('click',closeMenu);}
+  mobileMenu.querySelectorAll('a').forEach(a=>{a.addEventListener('click',closeMenu);});
 }
-
-document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver(([e])=>{if(e.isIntersecting){el.classList.add('visible');}},{threshold:0.1}).observe(el);
-});
 </script>
 </body>
 </html>
