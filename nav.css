@@ -12,7 +12,7 @@ nav {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 20px 48px;
+    padding: 20px 56px;
     transition: background 0.3s, box-shadow 0.3s;
     background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(16px);
