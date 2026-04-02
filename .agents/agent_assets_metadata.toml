@@ -1,8 +1,31 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "QoG7VpeeZ-cPlXVklsGip"
+uri = "file://attached_assets/generated_images/favicon_concept_clock.png"
+type = "image"
+title = "favicon clock concept"
+
+[[generated]]
+id = "yGZ7mMg-Kuyz_hxQ2qR_0"
+uri = "file://attached_assets/generated_images/favicon_concept_colon.png"
+type = "image"
+title = "favicon colon concept"
 
 [[outputs]]
 id = "B2aXKCZipgh1ulnyVAFdN"
 uri = "file://1215_logo_cropped.png"
 type = "image"
 title = "12:15 logo — this is what becomes the favicon (scaled to 32×32)"
+
+[[outputs]]
+id = "6uzxRfKlzz0TumUGGnvjb"
+uri = "file://attached_assets/generated_images/favicon_concept_clock.png"
+type = "image"
+title = "Concept A — Clock face showing 12:15"
+
+[[outputs]]
+id = "BPxGn-2F0pyPZ89OJ7Udw"
+uri = "file://attached_assets/generated_images/favicon_concept_colon.png"
+type = "image"
+title = "Concept B — Amber colon mark on black"
