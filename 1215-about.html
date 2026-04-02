@@ -179,7 +179,7 @@ body { background: var(--white); color: var(--black); font-family: var(--sans); 
 
 /* DJ / OUTSIDE INTERESTS */
 .dj-section { background: var(--green); position: relative; overflow: hidden; }
-.dj-section::after { content: '◎'; font-size: 28rem; position: absolute; right: -60px; top: -80px; color: rgba(245,242,236,0.03); pointer-events: none; line-height: 1; }
+.dj-section::after { content: ''; }
 
 .dj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 2; }
 
@@ -241,7 +241,7 @@ footer { background: var(--black); padding: 32px 56px; display: flex; align-item
 
 /* Base: display rules for photo columns (must be in CSS, not inline, so media queries can override) */
 .ph-photos { display: flex; justify-content: center; align-items: flex-start; }
-.dj-photo { display: flex; justify-content: flex-end; align-items: flex-start; }
+.dj-photo { display: flex; justify-content: center; align-items: flex-start; }
 .dj-photo-mobile { display: none; }
 
 /* TABLET (960px): header and name section stay identical to desktop */
