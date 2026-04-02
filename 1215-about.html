@@ -71,6 +71,9 @@ body { background: var(--white); color: var(--black); font-family: var(--sans); 
 .section-a-col:first-child { padding-top: 0; border-top: none; }
 .section-a-col p { font-size: 0.88rem; color: #3a3530; line-height: 1.85; }
 .section-a-col p strong { color: var(--black); font-weight: 600; }
+.section-a-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.section-a-list li { font-size: 0.88rem; color: #3a3530; line-height: 1.7; padding-left: 1.2em; position: relative; }
+.section-a-list li::before { content: '—'; position: absolute; left: 0; color: var(--amber); }
 .section-a-subhead { font-size: 0.68rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--amber2); display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
 .section-a-subhead::before { content: ''; display: block; width: 26px; height: 2px; background: var(--amber2); flex-shrink: 0; }
 
@@ -303,10 +306,10 @@ footer { background: var(--black); padding: 32px 56px; display: flex; align-item
     <div>
       <div class="ph-eyebrow">About</div>
       <h1 class="ph-headline">
-        My<br>
-        <span>story.</span>
+        About<br>
+        <span>12:15</span>
       </h1>
-      <p class="ph-intro">Curious by nature. Evidence-led by practice. Twenty years turning insight into better decisions.</p>
+      <p class="ph-intro">Curious by nature. Evidence-led in practice. Twenty years shaping better decisions.</p>
     </div>
     <div class="ph-photos">
       <div class="polaroid-vinyl" style="transform:rotate(-2deg);max-width:100%;">
@@ -341,25 +344,43 @@ footer { background: var(--black); padding: 32px 56px; display: flex; align-item
         <div class="section-a-subhead">What we do</div>
         <p>12:15 is an insight and design strategy studio built on over 20 years of experience shaping better products, services and experiences.</p>
         <p>Very little we haven't seen.</p>
-        <p>That experience spans public sector, finance, tech, gaming, media, culture and consumer goods — from behaviour change campaigns to new product development — and is now brought together through 12:15.</p>
-        <p>At the core is a simple belief: better decisions come from better understanding — and that understanding should run through the entire process, not sit at the edges.</p>
+        <p>That experience spans public sector, finance, tech, gaming, media, culture and consumer goods — from behaviour change campaigns to new product development — now brought together through 12:15.</p>
+        <p>The focus is simple: helping organisations make better decisions through better understanding.</p>
+      </div>
+
+      <div class="section-a-col">
+        <div class="section-a-subhead">How we think</div>
+        <p>Better outcomes come from understanding people — not assumptions about them.</p>
+        <p>Research is most valuable when it informs the entire process, not just moments within it. When it helps teams move forward with clarity, align around what matters, and make decisions with confidence.</p>
+        <p>This means going beyond surface-level insight. Looking at behaviours, contexts and motivations. Connecting what people say with what they actually do.</p>
+        <p>And ensuring that insight doesn't stop at understanding — but carries through into action.</p>
       </div>
 
       <div class="section-a-col">
         <div class="section-a-subhead">How we work</div>
-        <p>Insight is part of the full development lifecycle — not something applied at isolated moments.</p>
+        <p>Research is part of the full development lifecycle — not something applied at isolated moments.</p>
         <p>From discovery through to implementation and continuous improvement, it runs as a continuous thread — reducing risk, building confidence, and aligning teams.</p>
         <p>Work happens in close collaboration across product, design, marketing and data — always balancing detail with the bigger picture.</p>
         <p>Curious, culturally attuned, and comfortable with complexity — especially where clarity matters most.</p>
-        <p>Insight doesn't stop at understanding. It's carried through into action.</p>
       </div>
 
       <div class="section-a-col">
-        <div class="section-a-subhead">Why 12:15 exists</div>
-        <p>12:15 was created to focus on work where insight genuinely shapes outcomes.</p>
-        <p>Work that improves real experiences. Work that carries through from idea to reality — and continues to evolve.</p>
-        <p>There is a particular focus on helping smaller organisations benefit from user insight. Not every team has the time or budget for heavyweight research — but every team still has to make decisions. 12:15 ensures those decisions are grounded in real understanding, not assumption.</p>
-        <p>As a lean, senior partner with product and commercial awareness, the focus is on helping teams move forward with clarity and confidence.</p>
+        <div class="section-a-subhead">Behind 12:15</div>
+        <p>12:15 is led by senior experience, built over two decades working across agency, client-side and public sector environments.</p>
+        <p>That experience now sits at the core of the studio — delivered more directly, more flexibly, and closer to the work itself.</p>
+        <p>Depending on the challenge, 12:15 draws on a trusted network of like-minded specialists across research, design and strategy — allowing the studio to scale, broaden capability, and deliver at different levels of complexity.</p>
+        <p>The model is deliberately lean. No unnecessary layers. No distance between insight and action. Just the right people, brought together to solve the problem.</p>
+      </div>
+
+      <div class="section-a-col">
+        <div class="section-a-subhead">What this means in practice</div>
+        <ul class="section-a-list">
+          <li>Senior-led work, end-to-end</li>
+          <li>Research that informs decisions, not just reports</li>
+          <li>The right balance of rigour, speed and pragmatism</li>
+          <li>Flexible scale depending on the challenge</li>
+          <li>A focus on outcomes — for users and for the business</li>
+        </ul>
       </div>
 
     </div>
