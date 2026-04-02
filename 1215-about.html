@@ -242,11 +242,7 @@ footer { background: var(--black); padding: 32px 56px; display: flex; align-item
 /* Base: Section D mobile photo hidden until mobile breakpoint */
 .dj-photo-mobile { display: none; }
 
-/* TABLET (960px): header stays identical to desktop — no header changes here */
-@media (max-width: 960px) {
-  .dj-grid { grid-template-columns: 1fr; gap: 0; }
-  .dj-photo { display: none; }
-}
+/* TABLET (960px): header and name section stay identical to desktop */
 
 /* MOBILE (768px): header collapses to single column, show one portrait photo */
 @media (max-width: 768px) {
@@ -262,6 +258,8 @@ footer { background: var(--black); padding: 32px 56px; display: flex; align-item
   .values-grid { grid-template-columns: 1fr; padding: 0 24px; }
   .val-card { padding: 24px 20px; }
   .big-heading { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .dj-grid { grid-template-columns: 1fr; gap: 0; }
+  .dj-photo { display: none; }
   .dj-photo-mobile { display: block; text-align: center; margin-top: 40px; }
   .cta-band { padding: 48px 24px; }
   .cta-inner { flex-direction: column; align-items: flex-start; }
