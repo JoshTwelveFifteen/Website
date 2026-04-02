@@ -12,6 +12,12 @@ uri = "file://attached_assets/generated_images/favicon_concept_colon.png"
 type = "image"
 title = "favicon colon concept"
 
+[[generated]]
+id = "ac4l1-QYrCzzQaNN_usbQ"
+uri = "file://attached_assets/generated_images/favicon_concept_colon_styled.png"
+type = "image"
+title = "favicon styled colon"
+
 [[outputs]]
 id = "B2aXKCZipgh1ulnyVAFdN"
 uri = "file://1215_logo_cropped.png"
@@ -29,3 +35,9 @@ id = "BPxGn-2F0pyPZ89OJ7Udw"
 uri = "file://attached_assets/generated_images/favicon_concept_colon.png"
 type = "image"
 title = "Concept B — Amber colon mark on black"
+
+[[outputs]]
+id = "ZGxaLzjis-DIDPSaVuJjc"
+uri = "file://attached_assets/generated_images/favicon_concept_colon_styled.png"
+type = "image"
+title = "Styled colon — ornate dots referencing the logo character"
